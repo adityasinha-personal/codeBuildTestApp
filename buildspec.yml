@@ -5,6 +5,8 @@ phases:
     commands:
       - ./gradlew assembleRelease generatePomFileForAarPublication
 artifacts:
+  files:
+    - liba/build/outputs/aar/liba-release.aar
   secondary-artifacts:
     artifact1:
       files:
