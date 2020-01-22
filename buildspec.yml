@@ -3,8 +3,10 @@ version: 0.2
 phases:
   build:
     commands:
-      - ./gradlew assembleRelease generatePomFileForAarPublication
+      - ./gradlew assembleRelease
+      - ./gradlew generatePomFileForAarPublication
+      - ./gradlew moveAAR
+      - ./gradlew movePOM
 artifacts:
   files:
-    - liba/build/outputs/aar/liba-release.aar
-  name: liba-renamed.aar
+    - uploadFolder/**/*

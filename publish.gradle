@@ -26,3 +26,18 @@ publishing {
         }
     }
 }
+
+
+task moveAAR(type: Copy) {
+    from file("$buildDir/outputs/aar/")
+    include "${project.getName()}-release.aar"
+    destinationDir file("../uploadFolder/${project.getName()}/${rootConfiguration.global_version_name}")
+    rename "${project.getName()}-release.aar", "${project.getName()}-${rootConfiguration.global_version_name}.aar"
+}
+
+task movePOM(type: Copy) {
+    from file("$buildDir/publications/aar/")
+    include "pom-default.xml"
+    destinationDir file("../uploadFolder/${project.getName()}/${rootConfiguration.global_version_name}")
+    rename "pom-default.xml", "${project.getName()}-${rootConfiguration.global_version_name}.pom"
+}
