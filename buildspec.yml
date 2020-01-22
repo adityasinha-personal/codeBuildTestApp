@@ -11,3 +11,4 @@ artifacts:
     - liba/build/publications/aar/pom-default.xml
     - libb/build/outputs/aar/libb-release.aar
     - libb/build/publications/aar/pom-default.xml
+  discard-paths: yes
