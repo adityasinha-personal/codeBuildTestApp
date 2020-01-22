@@ -2,6 +2,7 @@ package my.tester.codebuildtestproject
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.TextView
 import my.tester.liba.A
 
@@ -15,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         val test = A()
         val A = test.varA
         val B = test.varB
-
+        Log.d("hello", "hello")
         displayText.text = "$A  $B"
     }
 }
