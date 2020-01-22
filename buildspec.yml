@@ -3,10 +3,7 @@ version: 0.2
 phases:
   build:
     commands:
-      - ./gradlew assembleDebug
-#  post_build:
-#    commands:
-#      - find / -name app-debug.apk
+      - ./gradlew assembleRelease generatePomFileForAarPublication
 artifacts:
   files:
     - $CODEBUILD_SRC_DIR/app/build/outputs/apk/debug/app-debug.apk

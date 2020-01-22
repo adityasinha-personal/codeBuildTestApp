@@ -1,0 +1,28 @@
+def rootConfiguration = rootProject.ext
+
+apply plugin: 'maven-publish'
+
+publishing {
+    publications {
+        aar(MavenPublication) {
+            groupId group
+            version rootConfiguration.global_version_name
+            artifactId project.getName()
+
+            artifact("$buildDir/outputs/aar/${project.getName()}-release.aar")
+            pom.withXml {
+                def dependencies = asNode().appendNode('dependencies')
+                configurations.getByName("releaseCompileClasspath").getResolvedConfiguration().getFirstLevelModuleDependencies().each {
+                    def dependency = dependencies.appendNode('dependency')
+                    dependency.appendNode('groupId', it.moduleGroup)
+                    dependency.appendNode('artifactId', it.moduleName)
+                    def depVersion = it.moduleVersion
+                    if (depVersion == 'unspecified') {
+                        depVersion = rootConfiguration.global_version_name
+                    }
+                    dependency.appendNode('version', depVersion)
+                }
+            }
+        }
+    }
+}
