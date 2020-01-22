@@ -7,8 +7,4 @@ phases:
 artifacts:
   files:
     - liba/build/outputs/aar/liba-release.aar
-  secondary-artifacts:
-    artifact1:
-      files:
-        - liba/build/outputs/aar/liba-release.aar
-      name: androidSDK/liba/0.0.1/liba-0.0.1.aar
+  name: liba-renamed.aar
