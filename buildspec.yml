@@ -6,4 +6,8 @@ phases:
       - ./gradlew assembleRelease generatePomFileForAarPublication
 artifacts:
   files:
-    - $CODEBUILD_SRC_DIR/app/build/outputs/apk/debug/app-debug.apk
+    - $CODEBUILD_SRC_DIR/app/build/outputs/apk/release/app-release-unsigned.apk
+    - $CODEBUILD_SRC_DIR/liba/build/outputs/aar/liba-release.apk
+    - $CODEBUILD_SRC_DIR/liba/build/publications/aar/pom-default.apk
+    - $CODEBUILD_SRC_DIR/libb/build/outputs/aar/libb-release.apk
+    - $CODEBUILD_SRC_DIR/libb/build/publications/aar/pom-default.apk
